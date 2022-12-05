@@ -1,0 +1,14 @@
+// define the inputs for the moving averages
+input movingAverageLength1 = 50
+input movingAverageLength2 = 200
+
+// compute the moving averages
+var ma1 = sma(close, movingAverageLength1)
+var ma2 = sma(close, movingAverageLength2)
+
+// plot the moving averages on the chart
+plot MA1 = ma1
+plot MA2 = ma2
+
+// create an alert condition when the 50-day MA crosses over the 200-day MA
+alertcondition(ma1 > ma2, "50-day MA crosses over 200-day MA", alert.bar)
